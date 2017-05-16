@@ -1,0 +1,16 @@
+{
+	"Allowed Asset File Types" : {
+		"css" : "text/css",
+		"js" : "text/javascript",
+		"json" : "application/json",
+		"jpeg" : "image/jpeg",
+		"jpg" : "image/jpg",
+		"gif" : "image/gif",
+		"png" : "image/png",
+		"svg" : "image/svg+xml",
+		"eot" : "application/vnd.ms-fontobject",
+		"tff" : "application/x-font-ttf",
+		"woff" : "application/x-font-woff",
+		"woff2" : "application/x-font-woff2"
+	}
+}

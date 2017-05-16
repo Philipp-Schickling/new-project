@@ -1,0 +1,22 @@
+# Rewrite rules
+<IfModule mod_rewrite.c>
+    RewriteEngine On
+
+    # Set RewriteBase
+    RewriteBase /
+
+    # Rewrite asset requests to "web/app-assets.php"
+    RewriteRule ^assets/(.*)$ web/app-assets.php [QSA,L]
+
+    # Rewrite robots.txt to "web/robots.txt"
+    # RewriteRule ^robots.txt web/robots.txt  [QSA,L]
+
+    # Do not rewrite asset requests
+    RewriteCond %{REQUEST_URI} !assets
+
+    # Do not rewrite robots.txt requests
+    # RewriteCond %{REQUEST_FILENAME} !/(robots)\.txt [NC]
+
+    # Rewrite everything else to web/app.php
+    RewriteRule ^(.*)$ web/app.php [QSA,L]
+</IfModule>
