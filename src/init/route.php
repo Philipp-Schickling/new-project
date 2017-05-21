@@ -25,12 +25,10 @@ if (EARLY_SYS_SUB != '') {
 
 // Handle ":" and "/" in the same way
 $pageToLoad = str_replace(':', '/', $pageToLoad);
-
 $getpageToLoad = substr($pageToLoad, strpos($pageToLoad, '/') + 1);
 
 // Split URI by "/" into array
 $rawGetParameters = explode('/', $getpageToLoad);
-
 
 // Generate pretty GET array
 $__GET = foldArray($rawGetParameters);
@@ -42,6 +40,7 @@ $pageToLoad = $uri[0];
 // Sanitize page name
 $pageToLoad = preg_replace("/[^a-zA-Z0-9\-]+/", '', $pageToLoad);
 
+
 // Define SYS_PAGE constant
 if ($pageToLoad != '') {
     define('SYS_PAGE', $pageToLoad);
@@ -50,14 +49,11 @@ if ($pageToLoad != '') {
 }
 
 
+// initialize the app
 if(file_exists(SYS_PATH_PAGES . SYS_PAGE . '.php')) {
-
 	require_once SYS_PATH_INIT . '/initialize.php';
-
 } else {
-
 	fatalError('404. This page does not exist.');
-	
 }
 
 

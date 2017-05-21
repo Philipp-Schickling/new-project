@@ -54,48 +54,19 @@
 // Flush output, show error message and exit app
 function fatalError($errorMessage, $errorType='server') {
 
-	// die( $errorMessage );
-
-    // Get error Template
+    // get error Template
     $errorTemplate = file_get_contents(SYS_PATH_RESOURCES . '/templates/error/error.html');
 
-    // Set variables
-    $errorTemplate = str_replace('###APP_NAME###', SYS_NAME, $errorTemplate);
-    $errorTemplate = str_replace('###APP_VERSION###', SYS_VERSION, $errorTemplate);
-    $errorTemplate = str_replace('###ERROR_TYPE###', $errorType, $errorTemplate);
-    $errorTemplate = str_replace('###DATE###', date('d.m.Y - H:i:s'), $errorTemplate);
+    // replace 'variables' in error.html
     $errorTemplate = str_replace('###ERROR_MESSAGE###', $errorMessage, $errorTemplate);
 
-
-
-    // Check if system is initialized
-    $appStatus = 'bootstrap';
-
-    if (defined('SYS_INSTALLED')) {
-        $appStatus = 'loaded';
-    }
-
-    $errorTemplate = str_replace('###APP_STATUS###', $appStatus, $errorTemplate);
-
-
-
-    // Set base url if possible
-    if (defined('EARLY_SYS_BASE')) {
-        $errorTemplate = str_replace('###SYS_BASE###', EARLY_SYS_BASE, $errorTemplate);
-    } else {
-        $errorTemplate = str_replace('###SYS_BASE###', '#', $errorTemplate);
-    }
-    
-
-
-    // Clean output buffer
+    // clean output buffer
     ob_end_clean();
 
-
-    // Close database connection
+    // close database connection
     $sysDatabase = null;
 
-
+    // display the page
     echo $errorTemplate;
 
 
