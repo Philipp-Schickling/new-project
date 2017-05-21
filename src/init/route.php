@@ -45,7 +45,7 @@ $pageToLoad = preg_replace("/[^a-zA-Z0-9\-]+/", '', $pageToLoad);
 if ($pageToLoad != '') {
     define('SYS_PAGE', $pageToLoad);
 } else {
-    define('SYS_PAGE', 'default');
+    define('SYS_PAGE', 'index');
 }
 
 

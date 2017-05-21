@@ -9,7 +9,6 @@
 	define('SYS_NAME', 'Activator');
 
 
-
 /* 
 
 	directory paths
