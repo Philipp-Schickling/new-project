@@ -29,10 +29,13 @@
 	define('SYS_PATH_CONFIG', SYS_PATH . 'config/');
 
 	// assets
-    define('SYS_PATH_ASSETS', SYS_PATH_ROOT . '/web/assets/');
+    define('SYS_PATH_ASSETS', SYS_PATH_ROOT . 'web/assets/');
 
 	// assets
-    define('SYS_PATH_PAGES', SYS_PATH_ROOT . '/src/pages/');
+    define('SYS_PATH_PAGES', SYS_PATH_ROOT . 'src/pages/');
+
+    // app/resources
+    define('SYS_PATH_RESOURCES', SYS_PATH . 'resources/');
 
 
 ?>

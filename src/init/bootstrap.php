@@ -54,7 +54,7 @@
 // Flush output, show error message and exit app
 function fatalError($errorMessage, $errorType='server') {
 
-	die( $errorMessage );
+	// die( $errorMessage );
 
     // Get error Template
     $errorTemplate = file_get_contents(SYS_PATH_RESOURCES . '/templates/error/error.html');

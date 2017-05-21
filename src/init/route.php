@@ -42,7 +42,6 @@ $pageToLoad = $uri[0];
 // Sanitize page name
 $pageToLoad = preg_replace("/[^a-zA-Z0-9\-]+/", '', $pageToLoad);
 
-
 // Define SYS_PAGE constant
 if ($pageToLoad != '') {
     define('SYS_PAGE', $pageToLoad);
@@ -50,43 +49,16 @@ if ($pageToLoad != '') {
     define('SYS_PAGE', 'default');
 }
 
-if(file_exists(SYS_PATH_PAGES . '/' . SYS_PAGE . '.php')) {
-	require_once SYS_PATH_PAGES . '/index.php';
-	// require_once SYS_PATH_PAGES . '/initialize.php';
-	die();
+
+if(file_exists(SYS_PATH_PAGES . SYS_PAGE . '.php')) {
+
+	require_once SYS_PATH_INIT . '/initialize.php';
+
 } else {
+
 	fatalError('404. This page does not exist.');
+	
 }
-
-
-
-// Check if page is private or public
-if (file_exists(SYS_PATH_PAGES . '/public/' . SYS_PAGE . '.php')) {
-    define('SYS_PAGE_TYPE', 'public');
-} else if (file_exists(SYS_PATH_PAGES . '/private/' . SYS_PAGE . '.php')) {
-    define('SYS_PAGE_TYPE', 'private');
-}
-
-
-
-// Check if page exists
-if (defined('SYS_PAGE_TYPE')) {
-
-     require_once SYS_PATH_INIT . '/initialize.php';
-
-} else {
-
-    if (SYS_PAGE !== '') {
-        // Send 404 header and die pretty 
-        header('HTTP/1.0 404 Not Found');
-        fatalError('404. This page does not exist.');
-    } else {
-        // Generate default page
-        require_once SYS_PATH_INIT . '/initialize.php';
-    }
-
-}
-
 
 
 
